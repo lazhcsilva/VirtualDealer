@@ -18,13 +18,13 @@ public class ClienteController {
 	@PostMapping("/salvarFormularioCliente")
 	public String salvarFormularioCliente(Cliente clienteCadastro) {
 		this.clienteCadastroDAO.save(clienteCadastro);
-		return "perfilcliente";
+		return "perfil";
 	}
 	
 	@GetMapping("/editarCliente")
 	public String editarCliente(Integer idCliente, Model model) {
 		model.addAttribute("lista", this.clienteCadastroDAO.findById(idCliente));
-		return "perfilcliente";
+		return "perfil";
 	}
 	
 	@GetMapping("/apagarCliente")

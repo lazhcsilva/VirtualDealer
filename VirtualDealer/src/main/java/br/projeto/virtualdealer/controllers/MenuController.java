@@ -3,6 +3,9 @@ package br.projeto.virtualdealer.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import br.projeto.virtualdealer.model.Cliente;
+import br.projeto.virtualdealer.model.Endereco;
+
 @Controller
 public class MenuController {
 	
@@ -17,7 +20,7 @@ public class MenuController {
 	}
 	
 	@GetMapping("/cadastro")
-	public String Cadastro() {
+	public String Cadastro(Cliente cliente, Endereco endereco) {
 		return "cadastro";
 	}
 	
@@ -43,7 +46,7 @@ public class MenuController {
 	
 	@GetMapping("/cadastroOferta")
 	public String cadastroOferta() {
-		return "cadastro_oferta";
+		return "cadastrooferta";
 	}
 	
 	@GetMapping("/carrinho")
@@ -74,5 +77,20 @@ public class MenuController {
 	@GetMapping("/perfil")
 	public String perfil() {
 		return "perfil";
+	}
+	
+	@GetMapping("/trocaSenha")
+	public String trocaSenha() {
+		return "senha";
+	}
+	
+	@GetMapping("/cadastroConcluido")
+	public String cadastroConcluido() {
+		return "cadastroconcluido";
+	}
+	
+	@GetMapping("/termos")
+	public String termos() {
+		return "termosdeuso";
 	}
 }
