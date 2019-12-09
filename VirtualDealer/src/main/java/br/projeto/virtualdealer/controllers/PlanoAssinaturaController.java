@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import br.projeto.virtualdealer.model.PlanoAssinaturaDAO;
+import br.projeto.virtualdealer.dao.PlanoAssinaturaDAO;
 
 @Controller
 public class PlanoAssinaturaController {

@@ -1,12 +1,16 @@
 package br.projeto.virtualdealer.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,8 +25,21 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente {
+	@NamedQueries({
+	    @NamedQuery(name = "Funcionario.findAll", query = 
+	    "SELECT f FROM Funcionario f"),
+	    @NamedQuery(name = "Funcionario.findByCodigo", query = 
+	    "SELECT f FROM Funcionario f WHERE f.codigo = :codigo"),
+	    @NamedQuery(name = "Funcionario.findByLogin", query = 
+	    "SELECT f FROM Funcionario f WHERE f.login = :login")})
+public class Cliente implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idCliente;
 	
@@ -46,6 +63,9 @@ public class Cliente {
 	@Pattern(regexp="(\\d{2}) \\d{5}-\\d{4}")
 	private String telefone;
 	
+    @Column(name = "ativo", nullable = false)
+    private boolean ativo;
+	
 	@ManyToOne
 	private Assinatura assinatura;
 	
@@ -55,6 +75,10 @@ public class Cliente {
 	@ManyToOne
 	private Reserva reserva;
 
+	public Cliente() {
+		
+	}
+	
 	public Integer getIdCliente() {
 		return idCliente;
 	}
@@ -142,7 +166,21 @@ public class Cliente {
 				+ ", assinatura=" + assinatura + ", endereco=" + endereco + ", reserva=" + reserva + "]";
 	}
 
+	@Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idCliente != null ? idCliente.hashCode() : 0);
+        return hash;
+    }
 	
-	
+	@Override
+    public boolean equals(Object object) {
+        if (!(object instanceof Cliente)) {
+            return false;
+        }
+        Cliente other = (Cliente) object;
+        return !((this.emailCliente == null && other.emailCliente != null) || 
+        (this.emailCliente != null && !this.emailCliente.equals(other.emailCliente)));
+    }
 	
 }

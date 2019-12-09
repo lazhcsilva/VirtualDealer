@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import br.projeto.virtualdealer.dao.ClienteDAO;
 import br.projeto.virtualdealer.model.Cliente;
-import br.projeto.virtualdealer.model.ClienteDAO;
 
 @Controller
 public class ClienteController {

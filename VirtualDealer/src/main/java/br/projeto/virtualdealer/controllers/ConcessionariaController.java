@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import br.projeto.virtualdealer.dao.ConcessionariaDAO;
 import br.projeto.virtualdealer.model.Concessionaria;
-import br.projeto.virtualdealer.model.ConcessionariaDAO;
 
 @Controller
 public class ConcessionariaController {

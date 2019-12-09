@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import br.projeto.virtualdealer.dao.AssinaturaDAO;
 import br.projeto.virtualdealer.model.Assinatura;
-import br.projeto.virtualdealer.model.AssinaturaDAO;
 
 @Controller
 public class AssinaturaController {
