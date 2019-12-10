@@ -11,25 +11,26 @@ import br.projeto.virtualdealer.model.Cliente;
 
 @Controller
 public class ClienteController {
-
+	
+	
 	@Autowired
-	private  ClienteDAO clienteCadastroDAO;
+	private  ClienteDAO clienteDAO;
 	
 	@PostMapping("/salvarFormularioCliente")
-	public String salvarFormularioCliente(Cliente clienteCadastro) {
-		this.clienteCadastroDAO.save(clienteCadastro);
+	public String salvarFormularioCliente(Cliente cliente) {
+		this.clienteDAO.save(cliente);
 		return "perfil";
 	}
 	
 	@GetMapping("/editarCliente")
 	public String editarCliente(Integer idCliente, Model model) {
-		model.addAttribute("lista", this.clienteCadastroDAO.findById(idCliente));
+		model.addAttribute("lista", this.clienteDAO.findById(idCliente));
 		return "perfil";
 	}
 	
 	@GetMapping("/apagarCliente")
 	public String apagarCliente(Integer idCliente) {
-		this.clienteCadastroDAO.deleteById(idCliente);
+		this.clienteDAO.deleteById(idCliente);
 		return "index";
 	}
 	

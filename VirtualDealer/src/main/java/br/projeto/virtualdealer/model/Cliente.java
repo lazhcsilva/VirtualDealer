@@ -1,6 +1,5 @@
 package br.projeto.virtualdealer.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,21 +22,8 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "cliente")
-	@NamedQueries({
-	    @NamedQuery(name = "Funcionario.findAll", query = 
-	    "SELECT f FROM Funcionario f"),
-	    @NamedQuery(name = "Funcionario.findByCodigo", query = 
-	    "SELECT f FROM Funcionario f WHERE f.codigo = :codigo"),
-	    @NamedQuery(name = "Funcionario.findByLogin", query = 
-	    "SELECT f FROM Funcionario f WHERE f.login = :login")})
-public class Cliente implements Serializable {
+public class Cliente{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idCliente;
 	
@@ -78,7 +62,7 @@ public class Cliente implements Serializable {
 	public Cliente() {
 		
 	}
-	
+
 	public Integer getIdCliente() {
 		return idCliente;
 	}
@@ -135,6 +119,14 @@ public class Cliente implements Serializable {
 		this.telefone = telefone;
 	}
 
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	public Assinatura getAssinatura() {
 		return assinatura;
 	}
@@ -163,24 +155,10 @@ public class Cliente implements Serializable {
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", nome=" + nome + ", emailCliente=" + emailCliente + ", password="
 				+ password + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", telefone=" + telefone
-				+ ", assinatura=" + assinatura + ", endereco=" + endereco + ", reserva=" + reserva + "]";
+				+ ", ativo=" + ativo + ", assinatura=" + assinatura + ", endereco=" + endereco + ", reserva=" + reserva
+				+ "]";
 	}
-
-	@Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idCliente != null ? idCliente.hashCode() : 0);
-        return hash;
-    }
 	
-	@Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Cliente)) {
-            return false;
-        }
-        Cliente other = (Cliente) object;
-        return !((this.emailCliente == null && other.emailCliente != null) || 
-        (this.emailCliente != null && !this.emailCliente.equals(other.emailCliente)));
-    }
+	
 	
 }

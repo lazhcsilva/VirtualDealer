@@ -1,6 +1,9 @@
 package br.projeto.virtualdealer.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import br.projeto.virtualdealer.model.Cliente;
@@ -30,7 +33,8 @@ public class MenuController {
 	}
 	
 	@GetMapping("/login")
-	public String login() {
+	public String login(Cliente cliente, Model model, HttpSession session) {
+		model.addAttribute("cliente", new Cliente());
 		return "login";
 	}
 	
