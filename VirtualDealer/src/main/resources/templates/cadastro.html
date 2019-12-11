@@ -40,16 +40,16 @@
                   <p>É muito importante que você preencha todos os campos para realizar o seu cadastro</p>
                   <div class="row">
                       <div class="col-md-12">
-                          <form action="salvarFormularioCliente" th:object="${cliente}" id="form_cliente" method="POST">
+                          <form action="salvarFormularioCliente" th:object="${cliente}" id="form_cliente" method="POST" name="form_cliente">
                               <h5 class="text-left">Dados cadastrais</h5>
                               <div class="form-row">
                                   <div class="form-group col-md-6">
                                   	<label class="form-check-label" for="nomeCliente">Nome completo*</label>
-                                  	<input type="text" class="form-control" id="nomeCliente" placeholder="Ex: Mario caldas" th:field="*{nome}">
+                                  	<input type="text" name="nomeCliente" class="form-control" id="nomeCliente" placeholder="Ex: Mario caldas" th:field="*{nome}">
                                   </div>
                                   <div class="form-group col-md-6">
                                   	<label class="form-check-label" for="emailCliente">E-mail*</label>
-                                  	<input type="email" class="form-control" id="emailCliente" placeholder="Ex: mariocaldas@xxxxxx.com" th:field="*{emailCliente}">
+                                  	<input type="email" name="emailCliente" class="form-control" id="emailCliente" placeholder="Ex: mariocaldas@xxxxxx.com" th:field="*{emailCliente}">
                                   </div>
                                   <div class="form-group col-md-3">
                                   	<label class="form-check-label" for="cpf">CPF*</label>
@@ -77,7 +77,7 @@
                                   </div>
                                   <div class="form-group col-md-1">
                                   	<label class="form-check-label" for="numero">Numero*</label>
-                                  	<input type="text" class="form-control" id="numero" th:field="*{endereco.numero}">
+                                  	<input type="number" class="form-control" id="numero" th:field="*{endereco.numero}">
                                   </div>
                                   <div class="form-group col-md-3">
                                   	<label class="form-check-label" for="complemento">Complemento</label>
@@ -260,10 +260,14 @@
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/formoid/formoid.min.js"></script>
-  <script src="assets/js/jqueryvalidate.js"></script>
-  <script src="assets/js/jqueryvalidademin.js"></script>
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="jquery.validate.min.js"></script>
   <script src="assets/js/validacao.js"></script>
-  
+  <script>
+             $(function(){
+                    $("#form_contato").validate();
+             });
+       </script>
   
 </body>
 </html>

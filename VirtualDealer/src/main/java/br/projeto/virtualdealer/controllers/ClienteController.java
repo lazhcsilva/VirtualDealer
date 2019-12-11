@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import br.projeto.virtualdealer.dao.ClienteDAO;
 import br.projeto.virtualdealer.model.Cliente;
+import br.projeto.virtualdealer.model.Endereco;
 
 @Controller
 public class ClienteController {
@@ -17,7 +18,7 @@ public class ClienteController {
 	private  ClienteDAO clienteDAO;
 	
 	@PostMapping("/salvarFormularioCliente")
-	public String salvarFormularioCliente(Cliente cliente) {
+	public String salvarFormularioCliente(Cliente cliente, Endereco endereco) {
 		this.clienteDAO.save(cliente);
 		return "perfil";
 	}

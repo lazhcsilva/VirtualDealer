@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import br.projeto.virtualdealer.model.Cliente;
+import br.projeto.virtualdealer.model.Concessionaria;
 import br.projeto.virtualdealer.model.Endereco;
 
 @Controller
@@ -44,7 +45,7 @@ public class MenuController {
 	}
 	
 	@GetMapping("/cadastroEmpresa")
-	public String cadastroEmpresa() {
+	public String cadastroEmpresa(Concessionaria concessionaria, Endereco endereco) {
 		return "cadastro_emp";
 	}
 	

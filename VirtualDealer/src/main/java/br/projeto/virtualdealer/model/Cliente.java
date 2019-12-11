@@ -2,7 +2,7 @@ package br.projeto.virtualdealer.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,21 +47,14 @@ public class Cliente{
 	@Pattern(regexp="(\\d{2}) \\d{5}-\\d{4}")
 	private String telefone;
 	
-    @Column(name = "ativo", nullable = false)
-    private boolean ativo;
-	
 	@ManyToOne
 	private Assinatura assinatura;
 	
-	@ManyToOne
+	@ManyToOne(optional=true,cascade=CascadeType.ALL)
 	private Endereco endereco;
 	
 	@ManyToOne
 	private Reserva reserva;
-
-	public Cliente() {
-		
-	}
 
 	public Integer getIdCliente() {
 		return idCliente;
@@ -119,14 +112,6 @@ public class Cliente{
 		this.telefone = telefone;
 	}
 
-	public boolean isAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
-
 	public Assinatura getAssinatura() {
 		return assinatura;
 	}
@@ -155,10 +140,9 @@ public class Cliente{
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", nome=" + nome + ", emailCliente=" + emailCliente + ", password="
 				+ password + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", telefone=" + telefone
-				+ ", ativo=" + ativo + ", assinatura=" + assinatura + ", endereco=" + endereco + ", reserva=" + reserva
-				+ "]";
+				+ ", assinatura=" + assinatura + ", endereco=" + endereco + ", reserva=" + reserva + "]";
 	}
-	
+
 	
 	
 }

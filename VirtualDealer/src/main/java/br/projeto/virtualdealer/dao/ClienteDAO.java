@@ -7,7 +7,7 @@ import br.projeto.virtualdealer.model.Cliente;
 
 public interface ClienteDAO extends JpaRepository<Cliente, Integer> {
 
-	@Query(value = "select * from cliente where emailCliente = ?1 AND password = ?2", nativeQuery = true )
+	@Query(value = "select * from cliente where email_cliente = ?1 AND password = ?2", nativeQuery = true )
 	Cliente buscaLogin(String emailCliente, String password);
 	
 	
