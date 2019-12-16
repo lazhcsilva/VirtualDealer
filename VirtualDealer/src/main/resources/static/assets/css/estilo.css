@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+el.error{
+  background-color: red;
+}
+ 
+el.ok {
+  color: green;
+}
+
