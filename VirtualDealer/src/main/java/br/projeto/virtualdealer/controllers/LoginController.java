@@ -38,7 +38,7 @@ public class LoginController {
 			model.addAttribute("mensagem", "Usuario e senha invalido");
 		} else {
 			session.setAttribute("clienteLogado", clienteConsultado);
-			return "perfil";
+			return "/perfil";
 		}
 		
 		return "index";

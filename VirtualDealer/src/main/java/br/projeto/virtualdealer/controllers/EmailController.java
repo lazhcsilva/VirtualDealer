@@ -14,9 +14,9 @@ public class EmailController {
     private JavaMailSender javaMailSender;
 	
 	@RequestMapping("/salvarFormularioCliente")
-	public String cade( String email) {
+	public String cade( String emailCliente) {
 		 SimpleMailMessage msg = new SimpleMailMessage();
-	        msg.setTo(email);
+	        msg.setTo(emailCliente);
 	        msg.setSubject("Testando envio");
 	        msg.setText("http://localhost:8080/cadastro");
 

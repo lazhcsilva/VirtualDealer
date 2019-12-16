@@ -11,14 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.br.CPF;
-
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "cliente")
@@ -27,24 +19,17 @@ public class Cliente{
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idCliente;
 	
-	@NotBlank(message="O nome deve ser preenchido corretamente com texto válido")
-	@Size(min = 3, max = 40)
 	private String nome;
 	
-	@NotNull @Email
 	private String emailCliente;
 	
-	@NotNull
 	private String password;
 	
-	@NotNull @CPF
 	private String cpf;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	
-	@NotNull
-	@Pattern(regexp="(\\d{2}) \\d{5}-\\d{4}")
 	private String telefone;
 	
 	@ManyToOne

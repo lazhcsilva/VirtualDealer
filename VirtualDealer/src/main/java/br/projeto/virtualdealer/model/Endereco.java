@@ -6,8 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "endereco")
@@ -16,28 +14,18 @@ public class Endereco {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEndereco;
 	
-	@NotBlank(message="Digite o nome da rua/avenida")
-	@Size(min = 5, max = 40)
 	private String logadouro;
 	
-	@NotBlank(message="Digite o número")
 	private int numero;
 	
-	@Size(min = 5, max = 40)
 	private String complemento;
 	
-	@NotBlank(message="Digite o bairro")
 	private String bairro;
 	
-	@NotBlank(message="Digite a cidade")
-	@Size(min = 5, max = 40)
 	private String cidade;
 	
-	@NotBlank(message="Digite o estado")
-	@Size(min = 5, max = 12)
 	private String estado;
 	
-	@NotBlank(message="Digite um CEP válido")
 	private String cep;
 	
 	@OneToOne
