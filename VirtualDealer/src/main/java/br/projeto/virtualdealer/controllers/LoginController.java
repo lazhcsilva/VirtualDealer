@@ -29,16 +29,23 @@ public class LoginController {
 	public String efetuarLogin(@ModelAttribute("cliente") Cliente cliente, BindingResult br, Model model, HttpSession session) throws NoSuchAlgorithmException {
 		
 		if(br.hasErrors()) {
+			
 			System.out.println("Resultado: " + br);
+		
 		}
 		
-		Cliente clienteConsultado = clienteDAO.buscaLogin(cliente.getEmailCliente(), cliente.getPassword());
+		cliente = clienteDAO.buscaLogin(cliente.getEmailCliente(), cliente.getPassword());
 		
-		if(clienteConsultado == null) {
+		if(cliente == null) {
+			
 			model.addAttribute("mensagem", "Usuario e senha invalido");
+		
 		} else {
-			session.setAttribute("clienteLogado", clienteConsultado);
+			
+			session.setAttribute("clienteLogado", cliente);
+			
 			return "/perfil";
+			
 		}
 		
 		return "index";
@@ -54,12 +61,22 @@ public class LoginController {
 		Concessionaria concessionariaConsultada = concessionariaDAO.buscaLoginConcessionaria(concessionaria.getEmailConcessionaria(), concessionaria.getPassword());
 		
 		if(concessionariaConsultada == null) {
+			
 			model.addAttribute("mensagem", "Email e senha invalido");
+			
 		} else {
+			
 			session.setAttribute("ConcessionariaLogada", concessionariaConsultada);
 			return "perfilConcessionaria";
+		
 		}
 		
 		return null;
+	}
+	
+	@PostMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/index";
 	}
 }
