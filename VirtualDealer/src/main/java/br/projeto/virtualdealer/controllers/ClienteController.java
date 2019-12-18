@@ -20,7 +20,7 @@ public class ClienteController {
 	@PostMapping("/salvarFormularioCliente")
 	public String salvarFormularioCliente(Cliente cliente, Endereco endereco) {
 		this.clienteDAO.save(cliente);
-		return "perfil";
+		return "cadastroconcluido";
 	}
 	
 	@GetMapping("/editarCliente")

@@ -57,12 +57,12 @@ public class EmailService {
 	
 	}
 	
-	public void enviarConfirmacaoDeConta(Cliente cliente) throws MessagingException {
+	public void emailConfirmacao(Cliente cliente) throws MessagingException {
 		
 		LocalDate agora = LocalDate.now();
 		LocalDate validade = agora.plusDays(5);
 
-
+		
 		EmailMensagem mensagem = new EmailMensagem();
 		mensagem.setTitulo("Olá, " + cliente.getNome() + ". Ative sua conta!");
 		mensagem.setMensagem("Para ter acesso total ao nosso site ative sua conta, copiando esse endereço abaixo e colando na url. (este email vence em: "

@@ -17,8 +17,8 @@ public class EmailController {
 	@Autowired 
 	private JavaMailSender mailSender;
 	
-	@RequestMapping(path = "/email-send", method = RequestMethod.GET)
-	public String sendMail(Cliente cliente) {
+	@RequestMapping(path = "/salvarFormularioCliente", method = RequestMethod.GET)
+	public String emailConfirmacao(Cliente cliente) {
 		
 		try {
 			
