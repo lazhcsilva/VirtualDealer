@@ -18,6 +18,24 @@ $("#form_cliente").validate({
 		},
 		telefone:{
 			required:true
+		},
+		"endereco.logadouro":{
+			required:true
+		},
+		"endereco.numero":{
+			required:true
+		},
+		"endereco.bairro":{
+			required:true
+		},
+		"endereco.cidade":{
+			required:true
+		},
+		"endereco.estado":{
+			required:true
+		},
+		"endereco.cep":{
+			required:true
 		}
 	},
 	messages:{
@@ -39,6 +57,24 @@ $("#form_cliente").validate({
 		},
 		telefone:{
 			required:"Digite um telefone de contato"
+		},
+		"endereco.logadouro":{
+			required:"Digite um logradouro"
+		},
+		"endereco.numero":{
+			required:"Digite o numero do local"
+		},
+		"endereco.bairro":{
+			required:"Digite o nome do bairro"
+		},
+		"endereco.cidade":{
+			required:"Digite o nome da cidade"
+		},
+		"endereco.estado":{
+			required:"Digite o nome do estado"
+		},
+		"endereco.cep":{
+			required:"Digite um CEP"
 		}
 	}
 });

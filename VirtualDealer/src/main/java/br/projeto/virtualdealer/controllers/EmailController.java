@@ -1,41 +1,41 @@
 package br.projeto.virtualdealer.controllers;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Controller;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import br.projeto.virtualdealer.model.Cliente;
+
+@RestController
 public class EmailController {
-	
-	@Autowired
-    private JavaMailSender javaMailSender;
-	
-	@RequestMapping("/salvarFormularioCliente")
-	public String cade( String emailCliente) {
-		 SimpleMailMessage msg = new SimpleMailMessage();
-	        msg.setTo(emailCliente);
-	        msg.setSubject("Testando envio");
-	        msg.setText("http://localhost:8080/cadastro");
 
-	        javaMailSender.send(msg);
-			return "/index2";
-
-	    }
+	@Autowired 
+	private JavaMailSender mailSender;
 	
-	@RequestMapping("/cade")
-	public String cad(@RequestParam String hash) {
-		 SimpleMailMessage msg = new SimpleMailMessage();
-	        msg.setTo(hash);
-	        msg.setSubject("Testando envio");
-	        msg.setText("http://localhost:9090/cad	");
-
-	        javaMailSender.send(msg);
-			return "/index2";
-
-	    }
-	
-	
+	@RequestMapping(path = "/email-send", method = RequestMethod.GET)
+	public String sendMail(Cliente cliente) {
+		
+		try {
+			
+			MimeMessage mail = mailSender.createMimeMessage();
+			
+			MimeMessageHelper helper = new MimeMessageHelper(mail);
+			helper.setTo(cliente.getEmailCliente());
+			helper.setSubject("teste de envio");
+			helper.setText("<h1>Ola Mundo</h1>");
+			mailSender.send(mail);
+			return "ok";
+		
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return "erro ao enviar";
+		
+		}
+	}
 }
