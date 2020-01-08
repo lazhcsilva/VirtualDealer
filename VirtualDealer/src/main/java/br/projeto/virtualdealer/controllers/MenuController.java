@@ -27,7 +27,11 @@ public class MenuController {
 	public String Cadastro(Cliente cliente, Endereco endereco) {
 		return "cadastro";
 	}
-	
+
+	@GetMapping("/cadastroefetuado")
+	public String Cadastroefetuadocomsucesso(Cliente cliente, Endereco endereco) {
+		return "cadastroefetuadocomsucesso";
+	}
 	@GetMapping("/pesquisa")
 	public String pesquisa() {
 		return "pesquisa";
@@ -49,9 +53,9 @@ public class MenuController {
 		return "cadastro_emp";
 	}
 	
-	@GetMapping("/cadastroOferta")
+	@GetMapping("/cadastroOfertas")
 	public String cadastroOferta() {
-		return "cadastrooferta";
+		return "cadastro_oferta";
 	}
 	
 	@GetMapping("/carrinho")
