@@ -7,7 +7,19 @@ import br.projeto.virtualdealer.model.Concessionaria;
 
 public interface ConcessionariaDAO extends JpaRepository<Concessionaria, Integer> {
 
-	@Query(value = "select * from concessionaria where emailConcessionaria = ?1 AND password = ?2", nativeQuery = true )
-	Concessionaria buscaLoginConcessionaria(String emailConcessionaria, String password);
+	@Query("select c from Concessionaria c where c.emailConcessionaria = :emailConcessionaria and c.password = :password")
+	public Concessionaria concessionariaLogin(String emailConcessionaria, String password);
+	
+	@Query("select c from Concessionaria c where c.emailConcessionaria = :emailConcessionaria")
+	public Concessionaria findByEmailIgnoreCase(String emailConcessionaria);
+	
+	@Query("select c from Concessionaria c where c.cnpj = :cnpj")
+	public Concessionaria findByCnpjIgnoreCase(String cnpj);
+
+	@Query("select c from Concessionaria c where c.inscricaoEstadual = :inscricaoEstadual")
+	public Concessionaria findByInscricaoEstadualIgnoreCase(String inscricaoEstadual);
+	
+	@Query("select c from Concessionaria c where c.razaoSocial = :razaoSocial")
+	public Concessionaria findByRazaoSocialIgnoreCase(String razaoSocial);
 	
 }

@@ -29,7 +29,7 @@ public class Concessionaria {
 	
 	@Size(min = 5, max = 40)
 	@NotBlank(message="O nome deve ser preenchido corretamente com texto válido")
-	private String razaosocial;
+	private String razaoSocial;
 	
 	@Email
 	@Column(name = "email_concessionaria")
@@ -77,12 +77,12 @@ public class Concessionaria {
 		this.concessionaria = concessionaria;
 	}
 
-	public String getRazaosocial() {
-		return razaosocial;
+	public String getRazaoSocial() {
+		return razaoSocial;
 	}
 
-	public void setRazaosocial(String razaosocial) {
-		this.razaosocial = razaosocial;
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
 	}
 
 	public String getEmailConcessionaria() {
@@ -153,7 +153,7 @@ public class Concessionaria {
 	@Override
 	public String toString() {
 		return "Concessionaria [idConcessionaria=" + idConcessionaria + ", concessionaria=" + concessionaria
-				+ ", razaosocial=" + razaosocial + ", emailConcessionaria=" + emailConcessionaria + ", nomeFantasia="
+				+ ", razaoSocial=" + razaoSocial + ", emailConcessionaria=" + emailConcessionaria + ", nomeFantasia="
 				+ nomeFantasia + ", inscricaoEstadual=" + inscricaoEstadual + ", password=" + password + ", cnpj="
 				+ cnpj + ", telefone1=" + telefone1 +  ", endereco=" + endereco
 				+ ", oferta=" + oferta + "]";
