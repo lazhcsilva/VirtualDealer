@@ -6,10 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "oferta")
@@ -39,8 +38,13 @@ public class Oferta {
 	@NotNull
 	private String combustivel;
 	
+	private double valor;
+	
+	private String descricao;
+	
 	@ManyToOne
 	private Concessionaria concessionaria;
+	
 
 	public Integer getIdOferta() {
 		return idOferta;
@@ -48,6 +52,16 @@ public class Oferta {
 
 	public void setIdOferta(Integer idOferta) {
 		this.idOferta = idOferta;
+	}
+	
+	
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public String getVeiculo() {
@@ -112,6 +126,15 @@ public class Oferta {
 
 	public void setCombustivel(String combustivel) {
 		this.combustivel = combustivel;
+	}
+	
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 	@Override

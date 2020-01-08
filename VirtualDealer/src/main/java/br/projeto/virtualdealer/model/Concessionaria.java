@@ -54,7 +54,6 @@ public class Concessionaria {
 	@NotBlank(message="Deve ser preenchido")
 	private String telefone1;
 	
-	private String telefone2;
 	
 	@OneToOne
 	private Endereco endereco;
@@ -134,13 +133,6 @@ public class Concessionaria {
 		this.telefone1 = telefone1;
 	}
 
-	public String getTelefone2() {
-		return telefone2;
-	}
-
-	public void setTelefone2(String telefone2) {
-		this.telefone2 = telefone2;
-	}
 
 	public Endereco getEndereco() {
 		return endereco;
@@ -163,7 +155,7 @@ public class Concessionaria {
 		return "Concessionaria [idConcessionaria=" + idConcessionaria + ", concessionaria=" + concessionaria
 				+ ", razaosocial=" + razaosocial + ", emailConcessionaria=" + emailConcessionaria + ", nomeFantasia="
 				+ nomeFantasia + ", inscricaoEstadual=" + inscricaoEstadual + ", password=" + password + ", cnpj="
-				+ cnpj + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", endereco=" + endereco
+				+ cnpj + ", telefone1=" + telefone1 +  ", endereco=" + endereco
 				+ ", oferta=" + oferta + "]";
 	}
 	
