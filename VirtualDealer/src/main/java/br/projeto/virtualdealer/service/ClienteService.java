@@ -84,10 +84,6 @@ public class ClienteService {
 			throw new ServiceException("Login/senha não encontrados");
 		}
 
-		if (cliente.getAtivado() == false) {
-			throw new ServiceException("Conta desativada");
-		}
-
 		return cliente;
 	}
 	

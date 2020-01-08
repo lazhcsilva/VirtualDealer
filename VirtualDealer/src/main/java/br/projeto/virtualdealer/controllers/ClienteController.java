@@ -31,7 +31,7 @@ public class ClienteController {
 	private ClienteDAO clienteDAO;
 	
 	@Autowired
-	private  ClienteService clienteService;
+	private ClienteService clienteService;
 	
 	@PostMapping("/salvarCliente")
 	public String salvarParticipante(@Valid Cliente cliente, BindingResult br, RedirectAttributes ra,Errors errors) {
@@ -68,12 +68,14 @@ public class ClienteController {
 		} catch (ServiceException e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
 
-			return "redirect:/login";
+			return "redirect:/perfil";
 		}
 
 		ra.addFlashAttribute("loginEfetuado", true);
 		return redirect;
 	}
+	
+	
 	
 	@GetMapping("/editarCliente")
 	public String editarCliente(Integer idCliente, Model model) {

@@ -32,8 +32,6 @@ public class Cliente{
 	
 	private String telefone;
 	
-	private boolean ativado;
-	
 	@ManyToOne
 	private Assinatura assinatura;
 	
@@ -107,14 +105,6 @@ public class Cliente{
 		this.assinatura = assinatura;
 	}
 
-	public boolean getAtivado() {
-		return ativado;
-	}
-
-	public void setAtivado(boolean ativado) {
-		this.ativado = ativado;
-	}
-
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -135,8 +125,7 @@ public class Cliente{
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", nome=" + nome + ", emailCliente=" + emailCliente + ", password="
 				+ password + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", telefone=" + telefone
-				+ ", ativado=" + ativado + ", assinatura=" + assinatura + ", endereco=" + endereco + ", reserva="
-				+ reserva + "]";
+				+ ", assinatura=" + assinatura + ", endereco=" + endereco + ", reserva=" + reserva + "]";
 	}
 
 	
