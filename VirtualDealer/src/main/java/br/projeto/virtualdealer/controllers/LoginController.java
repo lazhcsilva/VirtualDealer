@@ -34,7 +34,7 @@ public class LoginController {
 		
 		}
 		
-		cliente = clienteDAO.buscaLogin(cliente.getEmailCliente(), cliente.getPassword());
+		cliente = clienteDAO.clienteLogin(cliente.getEmailCliente(), cliente.getPassword());
 		
 		if(cliente == null) {
 			
