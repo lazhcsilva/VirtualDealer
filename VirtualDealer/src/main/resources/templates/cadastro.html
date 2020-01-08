@@ -61,10 +61,14 @@
 										<input type="text" name="nomeCliente" class="form-control" id="nomeCliente" placeholder="Ex: Mario caldas" th:field="*{nome}">
 									</div>
 									<br>
-									<div class="form-group col-md-6">
+									<div class="form-group col-md-4">
 										<label class="form-check-label" for="emailCliente">E-mail*</label>
 										<input type="email" name="emailCliente" class="form-control" id="emailCliente" placeholder="Ex: mariocaldas@xxxxxx.com" th:field="*{emailCliente}">
 									</div>
+									<div class="form-group col-md-2">
+										<label class="form-check-label" for="telefone">Telefone*</label>
+										<input type="text" class="form-control" id="telefone" placeholder="XX XXXXX-XXXX" th:field="*{telefone}">
+									</div> 
 									<div class="form-group col-md-3">
 										<label class="form-check-label" for="cpf">CPF*</label>
 										<input type="text" class="form-control" id="cpf" placeholder="XXX.XXX.XXX-XX" th:field="*{cpf}">
@@ -81,10 +85,7 @@
 										<label class="form-check-label" for="senha2">Confirmar senha*</label>
 										<input type="password" class="form-control" id="senha2" placeholder="Confirme a senha">
 									</div>
-									<div class="form-group col-md-2">
-										<label class="form-check-label" for="telefone">Telefone*</label>
-										<input type="text" class="form-control" id="telefone" placeholder="XX XXXXX-XXXX" th:field="*{telefone}">
-									</div> 
+									
 									<!-- <div class="form-group col-md-6">
 										<label class="form-check-label" for="logradouro">Logradouro*</label>
 										<input type="text" class="form-control" id="logradouro" placeholder="Av/Rua/Travessa" th:field="*{endereco.logadouro}">

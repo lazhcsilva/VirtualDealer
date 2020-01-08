@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import br.projeto.virtualdealer.model.Cliente;
 import br.projeto.virtualdealer.model.Concessionaria;
 import br.projeto.virtualdealer.model.Endereco;
+import br.projeto.virtualdealer.model.Oferta;
 
 @Controller
 public class MenuController {
@@ -53,8 +54,8 @@ public class MenuController {
 		return "cadastro_emp";
 	}
 	
-	@GetMapping("/cadastroOfertas")
-	public String cadastroOferta() {
+	@GetMapping("/cadastroOferta")
+	public String cadastro_oferta(Oferta oferta, Model model) {
 		return "cadastro_oferta";
 	}
 	

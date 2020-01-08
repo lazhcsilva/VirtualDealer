@@ -40,7 +40,7 @@
                   <p>É muito importante que você preencha todos os campos para realizar o compartilhamento</p>
                   <div class="row">
                       <div class="col-md-12">
-                          <form action="salvarFormularioOferta" th:object="${oferta}" id="form_oferta" method="POST" name="form_oferta">
+                          <form action="salvarOferta" th:object="${oferta}" id="form_oferta" method="POST" name="form_oferta">
                               <div class="form-row">
                                   <div class="form-group col-md-6">
                                       <h5 class="text-left">Preencha os dados abaixo</h5>
@@ -63,25 +63,31 @@
                                   <div class="form-group col-md-3">
                                       <input type="number" class="form-control" id="" placeholder="Cor do carro"  th:field="*{cor}">
                                   </div>
+                                  
                                  <!--  <div class="form-group col-md-3">
                                       <input type="cep" class="form-control" id="" placeholder="Ano do carro">
                                   </div> -->
-                                  <div class="form-group col-md-6">
+                                  <div class="form-group col-md-3">
                                       <input type="password" class="form-control" id="" placeholder="Chassi"  th:field="*{chassi}" >
                                   </div>
-
-                                  <div class="form-group col-md-6">
-                                     <textarea name="message" rows="2"  class="form-control" cols="100" name="desc" id="desc"  placeholder="Descrição do carro" required  th:field="*{descricao}"></textarea>
+                                   <div class="form-group col-md-3">
+                                      <input type="number" class="form-control" id="" placeholder="Placa"  th:field="*{placa}"><br> 
+                                      <input type="number" class="form-control" id="" placeholder="Valor do carro"  th:field="*{valor}">
                                   </div>
+									        <div class="form-group col-md-3">
+                                      <input type="number" class="form-control" id="" placeholder="Placa"  th:field="*{placa}"><br> 
+                                      <input type="number" class="form-control" id="" placeholder="Valor do carro"  th:field="*{valor}">
+                                  </div>
+                                  
+                                <!--   <div class="form-group col-md-6">
+                                     <textarea name="message" rows="2"  class="form-control" cols="100" name="descricao" id="descricao"  placeholder="Descrição do carro" required  ></textarea>
+                                  </div> -->
 
                                   <div class="form-group col-md-3">
                                       <!-- <input type="number" class="form-control" id="" placeholder="Importado"> <br>  -->
                                       <input type="number" class="form-control" id="" placeholder="Estado"  th:field="*{estado}">
                                   </div>
-                                  <div class="form-group col-md-3">
-                                      <input type="number" class="form-control" id="" placeholder="Placa"  th:field="*{placa}"><br> 
-                                      <input type="number" class="form-control" id="" placeholder="Valor do carro"  th:field="*{valor}">
-                                  </div>
+                                
 
                                   
                               </div>
