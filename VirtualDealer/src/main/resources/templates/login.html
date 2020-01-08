@@ -30,7 +30,7 @@
                 <div class="col-md-6 login-form-1">
                     <h3>Login para Empresas </h3>
                     	<div th:if="${mensagem}" th:text="${mensagem}"></div>
-                    	<form action="/clienteLogin" method="post" th:object="${cliente}">
+                    	<form action="/concessionariaLogin" method="post" th:object="${concessionaria}">
                         <div class="form-group">
                             <input name="login" type="text" class="form-control" placeholder="Seu Email"/>
                         </div>

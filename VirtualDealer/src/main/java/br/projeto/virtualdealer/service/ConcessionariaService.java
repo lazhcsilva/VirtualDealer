@@ -89,4 +89,16 @@ public class ConcessionariaService {
 		return concessionariaDAO.findByRazaoSocialIgnoreCase(razaoSocial);
 	}
 	
+	public Concessionaria concessionariaLogin(String emailConcessionaria, String password) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
+		
+		String senhaCriptografada = criptografarSenha(password);
+		Concessionaria concessionaria = this.concessionariaDAO.concessionariaLogin(emailConcessionaria, senhaCriptografada);
+
+		if (concessionaria == null) {
+			throw new ServiceException("Login/senha não encontrados");
+		}
+
+		return concessionaria;
+	}
+	
 }

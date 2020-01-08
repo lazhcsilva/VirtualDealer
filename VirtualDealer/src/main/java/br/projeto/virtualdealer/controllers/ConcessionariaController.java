@@ -1,6 +1,11 @@
 package br.projeto.virtualdealer.controllers;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.hibernate.service.spi.ServiceException;
@@ -10,7 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.projeto.virtualdealer.dao.ConcessionariaDAO;
@@ -44,6 +51,28 @@ public class ConcessionariaController {
 		}
 		ra.addFlashAttribute("contaCriada", true);
 		return "redirect:/index";
+	}
+	
+	@PostMapping("/concessionariaLogin")
+	public String efetuarLogin(HttpServletRequest request, @ModelAttribute Concessionaria concessionaria, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		
+		String redirect = "redirect:/index";
+		if (retorno != null) {
+			redirect = "redirect:" + retorno;
+		}
+
+		Concessionaria concessionariaLogada;
+		try {
+			concessionariaLogada = this.concessionariaService.concessionariaLogin(concessionaria.getEmailConcessionaria(), concessionaria.getPassword());
+			session.setAttribute("concessionariaLogada", concessionariaLogada);
+		} catch (ServiceException e) {
+			ra.addFlashAttribute("mensagemErro", e.getMessage());
+
+			return "redirect:/login";
+		}
+
+		ra.addFlashAttribute("loginEfetuado", true);
+		return redirect;
 	}
 	
 	@GetMapping("/editarConcessionaria")
